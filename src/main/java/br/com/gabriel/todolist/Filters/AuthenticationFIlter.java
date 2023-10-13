@@ -35,7 +35,7 @@ public class AuthenticationFIlter extends OncePerRequestFilter {
 
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-        
+        // TODO: Valida rota para apenas na criação de usuário
         HttpServletRequest httpRequest = request;
         String[] payloadUser = parsePassword(httpRequest.getHeader("Authorization"));
         UserModel user = userRespository.findByUsername(payloadUser[0]);
