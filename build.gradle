@@ -20,6 +20,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'mysql:mysql-connector-java:5.1.6'
 	implementation 'at.favre.lib:bcrypt:0.9.0'
+	implementation 'org.modelmapper:modelmapper:2.4.4'
 	
 	compileOnly("org.springframework.boot:spring-boot-devtools")
 	

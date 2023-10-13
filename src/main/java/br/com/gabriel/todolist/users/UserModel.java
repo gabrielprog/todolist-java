@@ -10,6 +10,8 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.*;
 
 @NoArgsConstructor
@@ -18,6 +20,7 @@ import jakarta.persistence.*;
 public class UserModel {
     
     @Id
+    @Getter
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 

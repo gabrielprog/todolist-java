@@ -18,6 +18,8 @@ import jakarta.persistence.*;
 @Table(name = "tasks")
 public class TaskModel {
 
+    @Getter
+    @Setter
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
@@ -32,9 +34,7 @@ public class TaskModel {
     
     @Getter
     @Setter
-    @OneToOne
-    @JoinColumn(name = "user_id")
-    private UserModel userId;
+    private UUID userId;
     
     @Getter
     @Setter
