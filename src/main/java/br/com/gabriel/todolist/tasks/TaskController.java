@@ -12,12 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import br.com.gabriel.todolist.Utils.ObjectComparator;
-import br.com.gabriel.todolist.Utils.Utils;
-import br.com.gabriel.todolist.users.UserModel;
+import br.com.gabriel.todolist.utils.Utils;
 import jakarta.servlet.http.HttpServletRequest;
 
 @RestController
