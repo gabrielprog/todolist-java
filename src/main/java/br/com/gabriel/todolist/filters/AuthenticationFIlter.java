@@ -10,6 +10,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import br.com.gabriel.todolist.users.UserModel;
 import br.com.gabriel.todolist.users.UserRespository;
+import br.com.gabriel.todolist.utils.ParseAuthentication;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -23,14 +24,6 @@ public class AuthenticationFIlter extends OncePerRequestFilter {
     
     private UserModel userModel;
     
-
-    public String[] parseAuthentication(String passwordEncode) {
-        String valuePasswordInBase64 = passwordEncode.substring("Basic".length()).trim();
-        byte[] decodedValuePassword = Base64.getDecoder().decode(valuePasswordInBase64);
-        String password = new String(decodedValuePassword);
-        return password.split(":");
-    }
-
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
         
@@ -41,7 +34,9 @@ public class AuthenticationFIlter extends OncePerRequestFilter {
             return;
         }
 
-        String[] payloadUser = parseAuthentication(request.getHeader("Authorization"));
+        String[] payloadUser = ParseAuthentication
+                                .parseBase64(request.getHeader("Authorization"))
+                                .split(":");
         userModel = userRespository.findByUsername(payloadUser[0]);
         
         if(userModel == null) {
