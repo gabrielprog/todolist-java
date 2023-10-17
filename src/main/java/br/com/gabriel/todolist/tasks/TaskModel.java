@@ -10,7 +10,6 @@ import java.util.UUID;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import br.com.gabriel.todolist.users.UserModel;
 import jakarta.persistence.*;
 
 @NoArgsConstructor
