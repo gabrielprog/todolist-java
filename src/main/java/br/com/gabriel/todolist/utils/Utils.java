@@ -10,8 +10,8 @@ import org.springframework.beans.BeanWrapperImpl;
 
 public class Utils {
 
-    public static void copyNonNullProperties(Object source, Object target) {
-        BeanUtils.copyProperties(source, target, getNullPropertyNames(source));
+    public static void copyNonNullProperties(Object source, Object destination) {
+        BeanUtils.copyProperties(source, destination, getNullPropertyNames(source));
     }
     
     public static String[] getNullPropertyNames(Object source) {
